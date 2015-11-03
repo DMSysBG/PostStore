@@ -1,6 +1,15 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
-
 <h2>Index</h2>
 
+<script>
+    
+    var client = new XMLHttpRequest();
+    client.onload = function (response) {
+        console.log(this.responseText);        
+    }
+    client.open('POST', '/Home/GZPost/3', true);
+    client.send();
+
+</script>
