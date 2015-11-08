@@ -7,9 +7,25 @@
     
     var client = new XMLHttpRequest();
     client.onload = function (response) {
-        console.log(this.responseText);        
+        var jsonDate = JSON.parse(this.responseText);
+        console.log(jsonDate);
+
+        console.log(printDate(jsonDate.PDate));
+
+        console.log(jsonDate.PPrice.toFixed(2));
     }
-    client.open('POST', '/Home/GZPost/3', true);
+    client.open('POST', '/Home/GZPost/4', true);
     client.send();
 
+
+    function printDate(value) {
+        var dateValue = new Date(value);
+        return printDateItem(dateValue.getDate()) + '.' +
+               printDateItem(dateValue.getMonth() + 1) + '.' +
+               printDateItem(dateValue.getFullYear());
+    }
+
+    function printDateItem(i) {
+        return (i < 10) ? "0" + i : "" + i;
+    }
 </script>

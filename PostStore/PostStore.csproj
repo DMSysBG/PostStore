@@ -130,6 +130,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\DMSys.SourceForge\DMSys.Framesource\DMSys.Systems\DMSys.Systems.csproj">
+      <Project>{e611627d-89d3-4560-959f-05cd28510086}</Project>
+      <Name>DMSys.Systems</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Post.Models\Post.Models.csproj">
       <Project>{ebd3d2e8-55bd-4c13-93c8-25529a24b361}</Project>
       <Name>Post.Models</Name>
