@@ -13,6 +13,9 @@ namespace Post.Models
 
         public int SiteId { get; set; }
 
+        /// <summary>
+        /// 1   - недвижими имоти
+        /// </summary>
         public int CategoryId { get; set; }
 
         [Display(Name = "Link")]

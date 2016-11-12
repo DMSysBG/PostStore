@@ -11,6 +11,23 @@ namespace PostStore.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewBag.DBTestMessage = "";
+            try
+            {
+                using (System.Data.SQLite.SQLiteConnection connection = new System.Data.SQLite.SQLiteConnection())
+                {
+                    connection.ConnectionString = String.Format(
+                        "Data Source={0};Version=3;",
+                         Server.MapPath("~/App_Data/test.db"));
+                    connection.Open();
+
+                }
+                ViewBag.DBTestMessage = "OK";
+            }
+            catch (Exception ex)
+            {
+                ViewBag.DBTestMessage = ex.Message;
+            }
             return View();
         }
 
@@ -33,6 +50,7 @@ namespace PostStore.Controllers
                     postMemory.Position = 0;
                     FileStreamResult model = new FileStreamResult(postMemory, "application/json");
                     Response.AppendHeader("Content-Encoding", "gzip");
+
                     return model;
                 }
                 else
